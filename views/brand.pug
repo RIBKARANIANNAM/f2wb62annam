@@ -2,20 +2,16 @@ extends layout
 
 block content
   h1= title 
-    - let brand  =[{name:"nike",slogan:"just do it",price:20},{name:"apple",slogan:"think different",price:30},{name:"under armour",slogan:"the only way is through",price:40}]
+    - let brand  =[{name:"nike", slogan:"just do it", price: 20},{name:"apple", slogan:"think different" , price: 30},{name:"under armour" , slogan:"the only way is through" , price: 40}]
   div(class="container-fluid")
   div(class="row")
 
 
-    each brand,index  in brands
-           table(style='width:100%')
-               tr
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{brand.name}
-                    div(class="col-sm-2" onclick=`buy(${index})`) #{brand.slogan}  
-                    div(class="col-sm-2" onclick=`buy(${index})`) $#{brand.price}   
-
+    each novel ,index in results
+        div(class="col-sm-2" onclick=`buy(${index})`)  #{brand.brandName} -  #{brand.brandslogan} - #{brand.brandprice}
+  
     script.
-     function buy(itemNo)
-     {
-        alert(`you purchased item ${itemNo}`)
-     };
+      function buy(itemNo)
+        {
+          alert(`You purchased Item ${itemNo+1}`)
+        }     
